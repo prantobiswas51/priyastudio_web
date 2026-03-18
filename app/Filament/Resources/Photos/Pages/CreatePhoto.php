@@ -18,6 +18,7 @@ class CreatePhoto extends CreateRecord
         $storedFileNames = Arr::wrap($data['uploaded_file_names'] ?? []);
         $description = $data['description'] ?? null;
         $type = $data['type'] ?? null;
+        $albumId = $data['album_id'] ?? null;
 
         $modelClass = $this->getModel();
         $firstRecord = null;
@@ -38,6 +39,7 @@ class CreatePhoto extends CreateRecord
                 'url' => $normalizedPath,
                 'description' => $description,
                 'type' => $type,
+                'album_id' => $albumId,
             ]);
 
             $firstRecord ??= $record;
